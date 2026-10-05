@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/_authenticated/home")({
   head: () => ({
     meta: [
-      { title: "Home — Astra" },
-      { name: "description", content: "Your Astra launcher: AI, web, movies and games in one place." },
-      { property: "og:title", content: "Home — Astra" },
-      { property: "og:description", content: "Your Astra launcher: AI, web, movies and games in one place." },
+      { title: "Home — qaisblocker" },
+      { name: "description", content: "Your qaisblocker launcher: AI, web, movies and games in one place." },
+      { property: "og:title", content: "Home — qaisblocker" },
+      { property: "og:description", content: "Your qaisblocker launcher: AI, web, movies and games in one place." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

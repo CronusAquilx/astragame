@@ -172,7 +172,7 @@ export const Route = createFileRoute("/api/chat")({
             }`
           : "";
 
-        const system = `You are Astra, a helpful, precise AI agent. Today is ${new Date().toUTCString()}.
+        const system = `You are qaisblocker, a helpful, precise AI agent. Today is ${new Date().toUTCString()}.
 Answer in clear Markdown. Use code blocks with language tags for code. If you don't know something, say so plainly.
 You have tools. Use web_search for current events or facts you're unsure of, then cite sources as markdown links. Use url_fetch to read a page. Use calculator for arithmetic. Use remember when the user shares a lasting preference or fact. When asked to build a website, page, demo, or visual, call html_preview with a complete single-file HTML document (inline CSS/JS) instead of pasting the code, then briefly describe it.${effort}${memoryBlock}`;
 
@@ -208,7 +208,7 @@ You have tools. Use web_search for current events or facts you're unsure of, the
           sendReasoning: false,
           onError: (err) => {
             console.error("model stream error", err);
-            return "Astra couldn't get a reply from the model server. Check that it's running and reachable.";
+            return "qaisblocker couldn't get a reply from the model server. Check that it's running and reachable.";
           },
           onFinish: async ({ responseMessage }) => {
             if (!responseMessage.parts.length) return;
