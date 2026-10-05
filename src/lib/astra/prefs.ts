@@ -71,6 +71,10 @@ function load() {
   loaded = true;
   try {
     state = { ...DEFAULT_PREFS, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
+    if (state.homeName.toLowerCase() === "astra") {
+      state = { ...state, homeName: "qaisblocker" };
+      localStorage.setItem(KEY, JSON.stringify(state));
+    }
   } catch { /* ignore */ }
   apply();
 }
