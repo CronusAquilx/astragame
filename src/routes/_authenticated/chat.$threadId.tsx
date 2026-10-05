@@ -12,7 +12,7 @@ import { MobileMenuButton } from "@/components/astra/AppShell";
 import { AstraMark } from "@/components/astra/Mark";
 
 export const Route = createFileRoute("/_authenticated/chat/$threadId")({
-  head: () => ({ meta: [{ title: "Chat — qaisblocker" }] }),
+  head: () => ({ meta: [{ title: "Chat — Astra" }] }),
   component: ThreadPage,
 });
 

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { authenticateRequest } from "@/lib/astra/api-user.server";
 
-/** Music relay: Deezer catalog (songs, albums, artists), artwork, lyrics and YouTube lookups load through qaisblocker's server. */
+/** Music relay: Deezer catalog (songs, albums, artists), artwork, lyrics and YouTube lookups load through Astra's server. */
 const YT_KEY = "AIzaSyCc5PPxKMk7-hqMK284HwnMISd13wIF15Y";
 const DZ = "https://api.deezer.com";
 
@@ -16,7 +16,7 @@ function json(data: unknown, cache = 300) {
 }
 
 async function dz(path: string): Promise<any> {
-  const r = await fetch(`${DZ}${path}`, { headers: { "user-agent": "Mozilla/5.0 qaisblocker" } }).catch(() => null);
+  const r = await fetch(`${DZ}${path}`, { headers: { "user-agent": "Mozilla/5.0 Astra" } }).catch(() => null);
   if (!r?.ok) return {};
   return r.json().catch(() => ({}));
 }

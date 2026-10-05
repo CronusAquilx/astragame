@@ -36,7 +36,7 @@ export const DEFAULT_PREFS: Prefs = {
   reduceMotion: false,
   glowTitle: true,
   tagline: "everything in one place",
-  homeName: "qaisblocker",
+  homeName: "astra",
   showClock: true,
   openLinksInNewTab: false,
   searchEngine: "astra",
@@ -71,10 +71,6 @@ function load() {
   loaded = true;
   try {
     state = { ...DEFAULT_PREFS, ...JSON.parse(localStorage.getItem(KEY) || "{}") };
-    if (state.homeName.toLowerCase() === "astra") {
-      state = { ...state, homeName: "qaisblocker" };
-      localStorage.setItem(KEY, JSON.stringify(state));
-    }
   } catch { /* ignore */ }
   apply();
 }

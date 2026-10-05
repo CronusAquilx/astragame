@@ -1,5 +1,5 @@
 /**
- * qaisblocker Mini — qaisblocker's own homemade assistant. Pure TypeScript, no outside AI,
+ * Astra Mini — Astra's own homemade assistant. Pure TypeScript, no outside AI,
  * no credits. Runs on the server for chat and in the browser for voice.
  */
 import { evaluate } from "mathjs";
@@ -91,8 +91,8 @@ export function think({ text, memories, name, now = new Date() }: BrainInput): B
   if (has(t, /^(hi|hey|hello|yo|sup|hiya|howdy|good (morning|afternoon|evening))\b/)) return { reply: pick([`Hey${who}! What can I do for you?`, `Hi${who}! How's it going?`, `Hello${who}! I'm all ears.`]) };
   if (has(t, /how are you/, /how'?s it going/, /how you doing/)) return { reply: pick(["I'm doing great, thanks for asking! How about you?", "Running smoothly and happy to chat. How are you?"]) };
   if (has(t, /^(i'?m|i am) (good|fine|great|ok|okay|alright)/)) return { reply: pick(["Glad to hear it!", "Nice! What are we doing today?"]) };
-  if (has(t, /who (are|r) you/, /what are you/, /your name/)) return { reply: "I'm qaisblocker Mini, qaisblocker's own homemade assistant. I run right here in qaisblocker, free, with no outside AI." };
-  if (has(t, /who (made|built|created) you/)) return { reply: "I was built from scratch for qaisblocker by Qais and Chance." };
+  if (has(t, /who (are|r) you/, /what are you/, /your name/)) return { reply: "I'm Astra Mini, Astra's own homemade assistant. I run right here in Astra, free, with no outside AI." };
+  if (has(t, /who (made|built|created) you/)) return { reply: "I was built from scratch for Astra by Qais and Chance." };
   if (has(t, /thank/, /\bthx\b/, /appreciate/)) return { reply: pick(["You're welcome!", "Anytime!", "Happy to help!"]) };
   if (has(t, /^(bye|goodbye|see you|later|good night|gn)\b/)) return { reply: pick([`Bye${who}! Talk soon.`, "See you later!", "Goodnight, sleep well!"]) };
   if (has(t, /joke/, /make me laugh/, /something funny/)) return { reply: pick(JOKES) };

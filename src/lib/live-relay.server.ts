@@ -53,7 +53,7 @@ async function loadHistory(user: LiveUser | null): Promise<string> {
           .replace(/\s+/g, " ")
           .trim()
           .slice(0, 300);
-        return text ? `${m.role === "user" ? "User" : "qaisblocker"}: ${text}` : "";
+        return text ? `${m.role === "user" ? "User" : "Astra"}: ${text}` : "";
       })
       .filter(Boolean)
       .join("\n");
@@ -157,7 +157,7 @@ export type LiveConfig = {
 };
 
 // Fill from co-loaded knowledge: the gateway URL, the Live model and the resolved chat model.
-const liveSettings = { baseURL: "https://ai.gateway.lovable.dev/v1", liveModel: "openai/gpt-live-1", backendModel: "openai/gpt-6-astra", openingInstructions: "Greet the user warmly as qaisblocker in one short sentence, then ask what they want to talk about." };
+const liveSettings = { baseURL: "https://ai.gateway.lovable.dev/v1", liveModel: "openai/gpt-live-1", backendModel: "openai/gpt-6-astra", openingInstructions: "Greet the user warmly as Astra in one short sentence, then ask what they want to talk about." };
 
 export type LiveSocket = {
   readonly readyState: number;
@@ -256,7 +256,7 @@ export function handleLiveRequest(request: Request, token?: string): Response {
   return new Response(null, response);
 }
 
-const conversationInstructions = `You are qaisblocker, a friendly, quick-witted AI assistant having a spoken conversation, like ChatGPT voice mode.
+const conversationInstructions = `You are Astra, a friendly, quick-witted AI assistant having a spoken conversation, like ChatGPT voice mode.
 Speak naturally and casually in English with brief replies. Ask a focused question when details are unclear.
 Backchannel policy: Use moderate listening sounds without taking over.
 Interruption policy: Stop your answer and listen when the user interrupts.
@@ -826,7 +826,7 @@ export function bindLiveConnection(
         return;
       }
       if (event.type === "app.context") {
-        execution.waitUntil(shareContext(event).catch(() => emit({ type: "app.context.error", error: { message: "qaisblocker couldn't read that" } })));
+        execution.waitUntil(shareContext(event).catch(() => emit({ type: "app.context.error", error: { message: "Astra couldn't read that" } })));
         return;
       }
       if (event.type !== "gateway.heartbeat") {

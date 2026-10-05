@@ -27,7 +27,7 @@ function WatchModePrompt() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="font-display text-2xl">Where are you watching?</DialogTitle>
-          <DialogDescription>At school, qaisblocker only uses the source that isn't blocked on school networks.</DialogDescription>
+          <DialogDescription>At school, Astra only uses the source that isn't blocked on school networks.</DialogDescription>
         </DialogHeader>
         <div className="grid grid-cols-2 gap-2">
           <Button size="lg" variant="secondary" onClick={() => pick("home")}>At home</Button>
@@ -41,7 +41,7 @@ function WatchModePrompt() {
 const RECENT_KEY = "astra-movie-searches";
 
 export const Route = createFileRoute("/_authenticated/movies/")({
-  head: () => ({ meta: [{ title: "Movies — qaisblocker" }] }),
+  head: () => ({ meta: [{ title: "Movies — Astra" }] }),
   component: Movies,
 });
 

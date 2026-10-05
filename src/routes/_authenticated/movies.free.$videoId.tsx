@@ -4,7 +4,7 @@ import { z } from "zod";
 
 export const Route = createFileRoute("/_authenticated/movies/free/$videoId")({
   validateSearch: z.object({ source: z.string().optional() }),
-  head: () => ({ meta: [{ title: "Free movie — qaisblocker Movies" }] }),
+  head: () => ({ meta: [{ title: "Free movie — Astra Movies" }] }),
   component: Free,
 });
 
