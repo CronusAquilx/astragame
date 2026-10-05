@@ -4,7 +4,7 @@ type RawHeaders = [string, string][];
 const NULL_BODY = new Set([101, 103, 204, 205, 304]);
 
 /**
- * Proxy transport that sends every request to Astra's own server (/api/proxy),
+ * Proxy transport that sends every request to qaisblocker's own server (/api/proxy),
  * so the browser never contacts the target site or a third-party Wisp server.
  */
 export class AstraRelayTransport {
@@ -30,7 +30,7 @@ export class AstraRelayTransport {
     const statusHeader = res.headers.get("x-astra-status");
     if (!statusHeader) {
       const text = await res.text().catch(() => "");
-      throw new Error(`Astra relay error ${res.status}: ${text.slice(0, 200)}`);
+      throw new Error(`qaisblocker relay error ${res.status}: ${text.slice(0, 200)}`);
     }
     const status = Number(statusHeader);
     let outHeaders: RawHeaders = [];
@@ -48,7 +48,7 @@ export class AstraRelayTransport {
     _onopen: (p: string, e: string) => void, _onmessage: (d: unknown) => void,
     onclose: (code: number, reason: string) => void, onerror: (e: string) => void,
   ): [(d: unknown) => void, (code: number, reason: string) => void] {
-    setTimeout(() => { onerror("Live connections aren't supported by the Astra relay"); onclose(1006, "unsupported"); }, 0);
+    setTimeout(() => { onerror("Live connections aren't supported by the qaisblocker relay"); onclose(1006, "unsupported"); }, 0);
     return [() => {}, () => {}];
   }
 }

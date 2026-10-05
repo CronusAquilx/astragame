@@ -15,7 +15,7 @@
 - Chat streaming goes through the `/api/chat` server route with the user's bearer token; messages persist server-side per thread, and the client sends only the latest message.
 - Authenticated pages live under `src/routes/_authenticated/` with `ssr: false`, since the session lives in browser storage.
 - Agent tools are defined in `src/lib/astra/tools.server.ts` and gated by rows in the `tools` table (enabled flag), so tools are switched on/off by data.
-- The web proxy defaults to the Astra relay transport (`src/lib/astra/relay-transport.ts` → authenticated `/api/proxy` server route) so browsers only contact the app domain; Wisp transports (Epoxy/Libcurl) fall back to the relay when no Wisp server is reachable, because school/work networks block public Wisp hosts.
+- The web proxy defaults to the qaisblocker relay transport (`src/lib/astra/relay-transport.ts` → authenticated `/api/proxy` server route) so browsers only contact the app domain; Wisp transports (Epoxy/Libcurl) fall back to the relay when no Wisp server is reachable, because school/work networks block public Wisp hosts.
 - Voice mode is a GPT Live call through the Lovable AI Gateway (uses workspace credits): `src/hooks/use-live-voice.ts` ↔ `/api/live` ↔ `src/lib/live-relay.server.ts` (backend model `openai/gpt-6-astra`). The on-device free voice (`src/hooks/use-free-voice.ts`, Whisper + Kokoro) is kept but not wired into the voice page.
 
 - Movies tab: TMDB data and posters go through the `/api/movies` relay route so browsers only contact the app domain; it authenticates via bearer header or `?token=` (iframes/images cannot set headers), streaming-source players load directly (user asked sources not to be proxied).
